@@ -26,8 +26,14 @@
     width: 93%;
 
     h1 {
-      font-size: 1.5rem;
+      font-size: 1rem;
       font-weight: 700;
     }
+  }
+}
+
+form {
+  .alert, .success {
+    height: 4rem;
   }
 }

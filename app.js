@@ -8,6 +8,8 @@ Schema = mongoose.Schema;
 // Create a schema for our data
 var ArticleSchema = new Schema({
   title: String,
+  url: String,
+  image: String,
   date: Date
 });
 
@@ -43,6 +45,8 @@ server.post('/articles', function (req, res, next) {
 
   var article = Article();
   article.title = req.params.title;
+  article.url = req.params.url;
+  article.image = req.params.image;
   article.date = new Date()
   article.save(function () {
     res.send(201, {article: 'Article created'});
