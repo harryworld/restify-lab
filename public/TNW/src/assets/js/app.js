@@ -42,9 +42,10 @@ var loadArticles = function() {
   }).done(function( data ) {
     $.each(data, function(index, value) {
       var obj = data[index];
-      $('.article-' + index + ' h1').text(obj.title);
-      $('.article-' + index + ' a').attr('href', obj.url);
-      $('.article-' + index + ' a').attr('style', 'background-image:url(' + obj.image + ');');
+      var uxIndex = index + 1;
+      $('.article-' + uxIndex + ' h1').text(obj.title);
+      $('.article-' + uxIndex + ' a').attr('href', obj.url);
+      $('.article-' + uxIndex + ' a').attr('style', 'background-image:url(' + obj.image + ');');
     });
   });
 }

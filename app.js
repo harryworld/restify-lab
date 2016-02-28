@@ -31,7 +31,7 @@ server.get('/articles', function (req, res, next) {
 
   console.log("mongodbServer getArticles");
 
-  Article.find(function (err,data) {
+  Article.find({}, null, {sort: {date: -1}}, function (err,data) {
     res.json(data);
   });
   return next();
