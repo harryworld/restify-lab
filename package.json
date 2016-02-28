@@ -1,0 +1,29 @@
+{
+  "name": "restify-lab",
+  "version": "0.0.0",
+  "description": "Lab for building Restify API",
+  "main": "app.js",
+  "dependencies": {
+    "mongoose": "^4.4.5",
+    "restify": "^4.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/harryworld/restify-lab.git"
+  },
+  "keywords": [
+    "restify",
+    "api",
+    "node"
+  ],
+  "author": "Harry Ng",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/harryworld/restify-lab/issues"
+  },
+  "homepage": "https://github.com/harryworld/restify-lab"
+}
