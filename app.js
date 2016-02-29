@@ -37,6 +37,23 @@ server.get('/articles', function (req, res, next) {
   return next();
 });
 
+server.get('/search/:s', function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+
+  console.log("search: " + req.params.s);
+
+  if (req.params.s === undefined || req.params.s === '') {
+    res.send(404);
+    return next();
+  }
+
+  Article.find({title: new RegExp(req.params.s, 'i')}, null, {sort: {date: -1}}, function (err,data) {
+    res.json(data);
+  });
+  return next();
+});
+
 server.post('/articles', function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "X-Requested-With");

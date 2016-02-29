@@ -6,6 +6,26 @@ $(document).ready(function() {
   loadArticles();
 });
 
+$('input[type=search]').keyup(function(event) {
+  var searchParam = $(event.currentTarget).val();
+  $.get('http://localhost:8080/search/' + searchParam, function(data) {
+    console.log(data);
+
+    if (data.length == 0) {
+      $('.dropdown-pane').html('No result found.');
+      return;
+    }
+
+    var content = '';
+    $.each(data, function(index, value) {
+      content += '<div class="row">' + value.title + '</div><hr/>';
+    });
+    $('.dropdown-pane').html(content);
+  }).fail(function() {
+    $('.dropdown-pane').html('Search results will show here.');
+  });
+});
+
 $('form').submit(function(event) {
   event.preventDefault();
 
