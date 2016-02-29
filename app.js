@@ -10,6 +10,7 @@ var ArticleSchema = new Schema({
   title: String,
   url: String,
   image: String,
+  username: String,
   date: Date
 });
 
@@ -58,12 +59,13 @@ server.post('/articles', function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "X-Requested-With");
 
-  console.log("mongodbServer postArticle: " + req.params.title);
+  console.log("mongodbServer postArticle: " + req.params.title + " from: " + req.params.username);
 
   var article = Article();
   article.title = req.params.title;
   article.url = req.params.url;
   article.image = req.params.image;
+  article.username = req.params.username;
   article.date = new Date()
   article.save(function () {
     res.send(201, {article: 'Article created'});
